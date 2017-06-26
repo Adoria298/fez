@@ -2,7 +2,7 @@
 <html>
 <head>
 	<style>
-		ul {
+		.navbar1 {
    		 list-style-type: none;
   		 margin: 0;
   		 padding: 0;
@@ -10,19 +10,19 @@
    		 background-color: #17b200;
 		}
 
-		li {
+		.navbar2 {
 		    float: left;
 		}
 
-		li a {
+		.navbar2 .navbar3 {
 		    display: block;
-		    color: white;
+		    color: #ffffff;
 		    text-align: center;
 		    padding: 14px 16px;
 		    text-decoration: none;
 		}
 
-		li a:hover:not(.active) {
+		.navbar2 .navbar3:hover:not(.active) {
 		    background-color: #138c01;
 		}
 		.active{
@@ -32,11 +32,11 @@
 </head>
 <body>
 	<nav>
-		<ul>
-		  <li><a class="active" href="index.html">Home</a></li>
-		  <li><a href="#news">News</a></li>
-		  <li><a href="#contact">Contact</a></li>
-		  <li><a href="#about">About</a></li>
+		<ul class="navbar1">
+		  <li class="navbar2"><a class="active navbar3" href="index.html">Home</a></li>
+		  <li class="navbar2"><a href="#news" class="navbar3">News</a></li>
+		  <li class="navbar2"><a href="#contact" class="navbar3">Contact</a></li>
+		  <li class="navbar2"><a href="#about" class="navbar3">About</a></li>
 		</ul>
 	</nav>
 	<h1>Welcome to LRGS Technology</h1>
