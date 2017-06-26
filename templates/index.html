@@ -1,11 +1,50 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Flask Messenger</title>
+<title>Flask Messenger</title>
 </head>
 <body>
 	<h1>Welcome to the Flask Messenger</h1>
 	<p>Made with <a href="http://flask.pocoo.org/">Flask</a> and Python 3</p>
+	<style>
+		.navbar1 {
+   		 list-style-type: none;
+  		 margin: 0;
+  		 padding: 0;
+   		 overflow: hidden;
+   		 background-color: #17b200;
+		}
+
+		.navbar2 {
+		    float: left;
+		}
+
+		.navbar2 .navbar3 {
+		    display: block;
+		    color: #ffffff;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+
+		.navbar2 .navbar3:hover:not(.active) {
+		    background-color: #138c01;
+		}
+		.active{
+			background-color:#0c0447;
+	</style>
+	<title>LRGS Technology</title>
+</head>
+<body>
+	<nav>
+		<ul class="navbar1">
+		  <li class="navbar2"><a class="active navbar3" href="index.html">Home</a></li>
+		  <li class="navbar2"><a href="#news" class="navbar3">News</a></li>
+		  <li class="navbar2"><a href="#contact" class="navbar3">Contact</a></li>
+		  <li class="navbar2"><a href="#about" class="navbar3">About</a></li>
+		</ul>
+	</nav>
+	<h1>Welcome to LRGS Technology</h1>
 	<p>Enter your message in the field below:</p>
 	<form action="/handle_data" method="POST">
 		<input type="text" name="message">
