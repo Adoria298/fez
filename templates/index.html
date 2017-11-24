@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Flask Messenger</title>
-	<link rel="stylesheet" type="text/css" href="static/styles.css">
+	<link rel="stylesheet" type="text/css" href="/static/styles.css">
 </head>
 <body>
 	<h1>Welcome to the Flask Messenger</h1>
@@ -18,8 +18,12 @@
 	<p>Enter your message in the field below:</p>
 	<form action="/handle_data" method="POST">
 		<input type="text" name="message">
-		<input type="submit" value="Send">
-		<input type="submit" value="Refresh">
+		<input type="submit" value="Send" name="send">
 	</form>
+	<form action="/handle_refresh" method="POST">
+		<input type="submit" value="Refresh" name="refresh">
+	</form>
+	<h1>Messages:<br/></h1>
+	<p>{{ messages }}</p>
 </body>
 </html>

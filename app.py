@@ -13,12 +13,15 @@ def hello(messages):
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-    print(request.form["message"])
-    message = request.form['message']
-    messages.append(message)
-    return redirect("/view/"+str(messages), code=302)
+	print(request.form['message'])
+	request.form['message']
+	message = request.form['message']
+	messages.append(message)
+	return redirect('/view/'+str(messages), code=302)
+
+@app.route('/handle_refresh', methods=['POST'])	
+def handle_refresh():
+	return redirect('/view/'+str(messages), code=302)
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
-    
-
