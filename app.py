@@ -16,12 +16,20 @@ def handle_data():
 	print(request.form['message'])
 	request.form['message']
 	message = request.form['message']
-	messages.append(message)
-	return redirect('/view/'+str(messages), code=302)
+	if len(message) < 10:
+		message = '<div>' + message
+		message += '</div>'
+		messages.append(message)		
+	else:
+		return hello(messages)
+	return hello(messages)
 
 @app.route('/handle_refresh', methods=['POST'])	
 def handle_refresh():
-	return redirect('/view/'+str(messages), code=302)
+	return hello(messages)
+	
+def clear_messages():
+	messages = []
     
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
