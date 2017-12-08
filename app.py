@@ -56,7 +56,7 @@ def handle_login():
 @app.route('/clear_messages')
 def clear_messages():
 	for i in messages:
-		messages.pop(cmds.index(i))
+		messages.pop()
 	return hello(messages)
 
 
