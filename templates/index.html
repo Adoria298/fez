@@ -1,17 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>Flask Messenger</title>
-	<link rel="stylesheet" type="text/css" href="/static/styles.css">
-</head>
+{% extends "layouts/layout.html" %}
+<title>Flask Messenger</title>
 <body>
-	<h1>Welcome to the Flask Messenger</h1>
-	<nav>
-		<ul class="navbar1">
-		  <li class="navbar2"><a class="active navbar3" href="/">Home</a></li>
-		  <li class="navbar2"><a href="about" class="navbar3">About</a></li>
-		</ul>
-	</nav>
+	{% block content %}
 	<p>Made with <a href="http://flask.pocoo.org/">Flask</a> and Python 3</p>
 	<p>Enter your message in the field below:</p>
 	<form action="/handle_data" method="POST">
@@ -21,5 +11,6 @@
 	<form action="/handle_refresh" method="POST">
 		<input type="submit" value="Refresh" name="refresh">
 	</form>
+	{% endblock %}
 </body>
-</html>
+
