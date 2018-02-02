@@ -12,7 +12,7 @@ def index():
 @app.route('/view/<messages>')
 def hello(messages):
     return render_template('view.html', messages=messages)
- 
+
 @app.route('/login')
 def login_page():
 	return render_template('login.html')
@@ -21,9 +21,9 @@ def login_page():
 def admin_page():
 	if loggedIn:
 		return render_template('admin.html')
-	else: 
+	else:
 		return render_template('not_admin.html')
-	
+
 @app.route('/about')
 def about_page():
 	return render_template('about.html')
@@ -34,25 +34,25 @@ def about_page():
 def handle_data():
 	print(request.form['message'])
 	request.form['message']
-	message = request.form['message']		
+	message = request.form['message']
 	if len(message) < 140:
 		message = '<div>' + message
 		message += '</div>'
-		messages.append(message)		
+		messages.append(message)
 	else:
 		return hello(messages)
 	return hello(messages)
 
-@app.route('/handle_refresh', methods=['POST'])	
+@app.route('/handle_refresh', methods=['POST'])
 def handle_refresh():
 	return hello(messages)
-	
+
 @app.route('/handle_login')
 def handle_login():
 	loggedIn = True
-	return loggedIn
-	
-#admin function	
+	return loggedIn, redirect('/')
+
+#admin function
 @app.route('/clear_messages')
 def clear_messages():
 	for i in messages:
@@ -60,7 +60,5 @@ def clear_messages():
 	return hello(messages)
 
 
-
-    
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
