@@ -3,15 +3,15 @@
 <head>
 	<title>login to the flask messenger</title>
 	<style>
-		div{
-		align-content: center;
+		#body{
+			align-content: center;
 		}
 	</style>	
 </head>
 <body>
 	<div>
 		<!--<img src="icon" alt="flask messenger logo">-->
-		<form>
+		<form action="/handle_login" method="post">
 			<input type="text" name="username"><br/>
 			<input type="password" name="password"><br/>
 			<input type="submit" name="login">

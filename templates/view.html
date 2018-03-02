@@ -12,7 +12,9 @@
 		<input type="submit" value="Refresh" name="refresh">
 	</form>
 	<h1>Messages:<br/></h1>
-	<p>{{ messages }}</p>
+	{% for message in messages %}
+		<div class="message">{{ message }}</div>
+	{% endfor %}
 	{% endblock %}
 </body>
 

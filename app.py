@@ -36,8 +36,6 @@ def handle_data():
 	request.form['message']
 	message = request.form['message']
 	if len(message) < 140:
-		message = '<div>' + message
-		message += '</div>'
 		messages.append(message)
 	else:
 		return hello(messages)
@@ -50,7 +48,7 @@ def handle_refresh():
 @app.route('/handle_login')
 def handle_login():
 	loggedIn = True
-	return loggedIn, redirect('/')
+	return hello(messages)
 
 #admin function
 @app.route('/clear_messages')
