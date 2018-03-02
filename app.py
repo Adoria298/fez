@@ -32,11 +32,11 @@ def about_page():
 #handlers
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-	print(request.form['message'])
 	request.form['message']
 	message = request.form['message']
 	if len(message) < 140:
 		messages.append(message)
+		print(message)
 	else:
 		return hello(messages)
 	return hello(messages)
