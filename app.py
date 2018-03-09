@@ -11,7 +11,7 @@ def index():
 
 @app.route('/view/<messages>')
 def hello(messages):
-    return render_template('view.html', messages=messages_reversed)
+    return render_template('view.html', messages=messages)
 
 @app.route('/login')
 def login_page():
@@ -35,13 +35,13 @@ def handle_data():
 	request.form['message']
 	message = request.form['message']
 	if len(message) < 140:
-		messages_reversed = messages.copy()  #copied to prevent a confusing order.
-		messages_reversed.reverse()
 		messages.append(message)
 		print(message)
+		messages_reversed = messages.copy()  #copied to prevent a confusing order. 
+		messages_reversed.reverse()
 	else:
 		return hello(messages)
-	return hello(messages)
+	return hello(messages_reversed)
 
 @app.route('/handle_refresh', methods=['POST'])
 def handle_refresh():
