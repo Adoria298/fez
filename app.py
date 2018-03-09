@@ -11,8 +11,10 @@ def index():
 
 @app.route('/view/<messages>')
 def hello(messages):
-    messages_reversed = messages #to prevent a confusing order.
+    messages_reversed = messages.copy()  #copied to prevent a confusing order.
     messages_reversed.reverse()
+    print(messages_reversed)
+    print(messages)
     return render_template('view.html', messages=messages_reversed)
 
 @app.route('/login')
