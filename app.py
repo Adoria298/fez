@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 messages = []
-loggedIn = False
+users = {}
 
 #pages
 @app.route('/')
@@ -47,9 +47,13 @@ def handle_data():
 def handle_refresh():
 	return hello(messages)
 
-@app.route('/handle_login')
+@app.route('/handle_login', methods=['POST'])
 def handle_login():
-	loggedIn = True
+	given_name = request.form['username']
+	if users[given_name]: #if the name exists
+		return hello(messages)
+	else:
+		users[given_name] = {}
 	return hello(messages)
 
 #admin function
