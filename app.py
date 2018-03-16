@@ -10,8 +10,8 @@ def index():
     return render_template('index.html')
 
 @app.route('/view/<messages>')
-def hello(messages):
-    return render_template('view.html', messages=messages)
+def hello(messages, user=r"<a href='/login'>Login</a>"):
+    return render_template('view.html', messages=messages, user=user)
 
 @app.route('/login')
 def login_page():
@@ -50,7 +50,7 @@ def handle_refresh():
 @app.route('/handle_login', methods=['POST'])
 def handle_login():
 	given_name = request.form['username']
-	if users[given_name]: #if the name exists
+	if given_name in users.keys(): #if the name exists
 		return hello(messages)
 	else:
 		users[given_name] = {}
