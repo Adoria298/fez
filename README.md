@@ -12,8 +12,9 @@ A python3 app that uses Flask to create a web messenging app for your local netw
      - choose the latest version of Python 3 (currently 3.6.5)
  - [Flask](http://flask.pocoo.org/)
     - `$ pip install flask`
- - Please ensure you have all dependencies installed, before attempting to use flask-messenger
- #### Download
+ - Please ensure you have all dependencies installed, before attempting to use flask-messenger.
+ - Please note that this project was tested on a [Raspberry Pi](https://www.raspberrypi.org/products/), but it should work on any platform with these dependencies installed.
+ #### Download:
  - `$ git clone https://www.github.com/Adoria298/flask-messenger.git`
  
  
@@ -28,3 +29,9 @@ A python3 app that uses Flask to create a web messenging app for your local netw
     if __name__ == '__main__':
         app.run(host='0.0.0.0')
     ```
+ 
+ ### Meta:
+ #### License:
+ Flask Messenger is licensed under the GNU GPL v3 license. For more information, please see [LICENSE](https://github.com/Adoria298/flask-messenger/blob/master/LICENSE).
+ #### Acknowledgements:
+ - The [Raspberry Pi](https://www.raspberrypi.org) people for their ["Build a Python Web Server With Flask"](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask) project, and for the Raspberry Pi itself.
