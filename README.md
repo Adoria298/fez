@@ -35,3 +35,5 @@ A python3 app that uses Flask to create a web messenging app for your local netw
  Flask Messenger is licensed under the GNU GPL v3 license. For more information, please see [LICENSE](https://github.com/Adoria298/flask-messenger/blob/master/LICENSE).
  #### Acknowledgements:
  - The [Raspberry Pi](https://www.raspberrypi.org) people for their ["Build a Python Web Server With Flask"](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask) project, and for the Raspberry Pi itself.
+ #### Versioning: 
+ Flask Messenger uses [Semantic Versioning](https://www.semver.org)
