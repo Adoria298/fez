@@ -9,8 +9,10 @@
 	<h1>Flask Messenger</h1>
 	<nav>
 		<ul class="navbar1">
+		  {% for page in pages %}
 		  <li class="navbar2"><a class="active navbar3" href="/">Home</a></li>
 		  <li class="navbar2"><a href="about" class="navbar3">About</a></li>
+		  {% endfor %}
 		</ul>
 	</nav>
 	{% block content %}{% endblock %}

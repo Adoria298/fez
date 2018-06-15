@@ -10,7 +10,7 @@
 		    float: left;
 }
 
-.navbar2 .navbar3 {
+.navbar2 {
 		    display: block;
 		    color: #ffffff;
 		    text-align: center;
@@ -18,7 +18,11 @@
 		    text-decoration: none;
 }
 
-.navbar2 .navbar3:hover:not(.active) {
+.navbar 3 {
+		text-align: right;
+}
+
+.navbar2 :hover:not(.active) {
 		    background-color: #138c01;
 }
 

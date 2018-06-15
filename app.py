@@ -1,68 +1,81 @@
-from flask import Flask, render_template, request, redirect, url_for
-
+from flask import Flask
+from flask_restful import Api, Resource, reqparse
+from uuid import uuid4
 app = Flask(__name__)
-messages = []
-users = {}
+api = Api(app)
 
-#pages
+messages = []
+
+class Message(Resource):
+	
+	def get(self, message=None):
+		return messages, 200
+	
+	def post(self, message):
+		parser = reqparse.RequestParser()
+		parser.add_argument("name")
+		args = parser.parse_args()
+		
+		if args["name"] == None:
+			name = "Unknown"
+		else:
+			name = args["name"]
+			
+		new_message = {
+			"text": message,
+			"name": name,
+			"id": uuid4()
+		}
+		
+		messages.append(new_message)
+		return new_message, 201
+		
+	def put(self, message):
+		parser = reqparse.RequestParser()
+		parser.add_argument("name")
+		parser.add_argument("id")
+		args = parser.parse_args()
+		
+		if args["name"] == None:
+			name = "Unknown"
+		else:
+			name = args["name"]
+		
+		for original_message in messages:
+			if original_message["id"] == args["id"]: #if the user wants to update a message
+				original_message["text"] = message
+				original_message["name"] = args["name"]
+				return original_message, 201
+			
+		new_message = {
+			"text": message,
+			"name": name,
+			"id": uuid4()
+		}
+		
+		messages.append(new_message)
+		return new_message, 201
+		
+	def delete(self, message):
+		parser = reqparse.RequestParser()
+		parser.add_argument("id")
+		args = parser.parse_args()
+		
+		if args["id"] == None:
+			for message in messages:
+				messages.pop(message)
+			return "Deleted all messages", 200
+		else:
+			for message in messages:
+				if message["id"] == args["id"]:
+					messages.pop(message)
+					return "Deleted message with text {0}, and id {1} by user {2}".format(message["text"], message["id"], message["name"]), 200
 @app.route('/')
 def index():
-    return render_template('index.html')
-
-@app.route('/view/<messages>')
-def hello(messages, user=r"<a href='/login'>Login</a>"):
-    return render_template('view.html', messages=messages, user=user)
-
-@app.route('/login')
-def login_page():
-	return render_template('login.html')
-
-@app.route('/admin')
-def admin_page():
-	if loggedIn:
-		return render_template('admin.html')
-	else:
-		return render_template('not_admin.html')
-
-@app.route('/about')
-def about_page():
-	return render_template('about.html')
-
-
-#handlers
-@app.route('/handle_data', methods=['POST'])
-def handle_data():
-	request.form['message']
-	message = request.form['message']
-	if len(message) < 140:
-		messages.append(message)
-		print(message)
-		messages_reversed = messages.copy()  #copied to prevent a confusing order. 
-		messages_reversed.reverse()
-	else:
-		return hello(messages)
-	return hello(messages_reversed)
-
-@app.route('/handle_refresh', methods=['POST'])
-def handle_refresh():
-	return hello(messages)
-
-@app.route('/handle_login', methods=['POST'])
-def handle_login():
-	given_name = request.form['username']
-	if given_name in users.keys(): #if the name exists
-		return hello(messages)
-	else:
-		users[given_name] = {}
-	return hello(messages)
-
-#admin function
-@app.route('/clear_messages')
-def clear_messages():
-	for i in messages:
-		messages.pop()
-	return hello(messages)
-
-
+	return str(messages)
+				
+api.add_resource(Message, "/messages/<string:message>")
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+	app.run(debug=True)
+				
+		
