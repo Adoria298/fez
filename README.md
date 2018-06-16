@@ -16,8 +16,8 @@ A python3 app that uses Flask to create a web messenging app for your local netw
  - Please ensure you have all dependencies installed, before attempting to use flask-messenger.
  - Please note that this project was tested on a [Raspberry Pi](https://www.raspberrypi.org/products/), but it should work on any platform with these dependencies installed.
  #### Download:
- - `$ git clone https://www.github.com/Adoria298/flask-messenger.git`
- 
+Download from the [latest release](/releases/latest), then extract into a directory. Or, for development:
+`git clone https://www.github.com/Adoria298/flask-messenger.git`
  
  ### Usage:
  - Change directory into the cloned directory (flask-messenger)
