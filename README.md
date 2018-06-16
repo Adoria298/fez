@@ -55,7 +55,11 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 
 ### For Development
 
-- see CONTRIBUTING.md for development guidelines.
+- See CONTRIBUTING.md for development guidelines.
+
+- If you find a bug, please report it on the issue page, note that you believe that you can fix it and follow the named guidelines.
+
+- If you want to suggest a feature, create an issue describing that feature, and attempt to implement it obeying the named guidelines.
 
 ## Meta
 
