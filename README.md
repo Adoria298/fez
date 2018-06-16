@@ -4,6 +4,7 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 ### Branches:
  - master: for stable releases only.
  - login-system: for the original login-system.
+ - rewrite: for the rewrite (see projects)
  
 
 ### Installation:
