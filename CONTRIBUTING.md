@@ -30,6 +30,8 @@
 
 ### Releases
 
+Releases happen either after 5 high priority issues are fixed, or when a project ends. A release's pull request should be the last one in its project. Between projects, if 5 features are added, a release should be created following the below guidelines. If not, these features are to be considered part of the new project.
+
 1. Ensure all tests are met. There should be a maximum of 10 low priority bugs.
 
 2. Create a separate branch for your release, that is based off main.
@@ -50,4 +52,4 @@
 
 8. Create a pull release, with a list of changes (a shortened summary of all commits since the last release.)
 
-9. Let @Adoria298 create a release. 
+9. Let @Adoria298 create a release.
