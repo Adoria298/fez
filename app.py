@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 from uuid import uuid4
-import json
 
 app = Flask(__name__)
 api = Api(app)
