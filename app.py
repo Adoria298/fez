@@ -14,6 +14,7 @@ class Message(Resource):
 	def post(self):
 		parser = reqparse.RequestParser()
 		parser.add_argument("name")
+		parser.add_argument("text")
 		args = parser.parse_args()
 		
 		if args["name"] == None:
@@ -21,10 +22,10 @@ class Message(Resource):
 		else:
 			name = args["name"]
 
-		message = args["message"]
+		text = args["text"]
 			
 		new_message = {
-			"text": message,
+			"text": text,
 			"name": name,
 			"id": str(uuid4())
 		}
@@ -36,6 +37,7 @@ class Message(Resource):
 		parser = reqparse.RequestParser()
 		parser.add_argument("name")
 		parser.add_argument("id")
+		parser.add_argument("text")
 		args = parser.parse_args()
 		
 		if args["name"] == None:
@@ -43,16 +45,16 @@ class Message(Resource):
 		else:
 			name = args["name"]
 
-		message = args["message"]
+		text = args["text"]
 		
 		for original_message in messages:
 			if original_message["id"] == args["id"]: #if the user wants to update a message
-				original_message["text"] = message
+				original_message["text"] = text
 				original_message["name"] = args["name"]
 				return original_message, 201
 			
 		new_message = {
-			"text": message,
+			"text": text,
 			"name": name,
 			"id": str(uuid4())
 		}
@@ -65,10 +67,11 @@ class Message(Resource):
 		parser.add_argument("id")
 		args = parser.parse_args()
 		
-		if args["id"] == None:
+		if args["id"] == "all":
 			for message in messages:
 				messages.pop(message)
 			return "Deleted all messages", 200
+
 		else:
 			for message in messages:
 				if message["id"] == args["id"]:
