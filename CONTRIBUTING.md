@@ -50,8 +50,8 @@ Releases happen either after 5 high priority issues are fixed, or when a project
      
      - .7z
 
-7. Place these compressed formats into the releases folder.
+7. Place these compressed formats into the release folder.
 
-8. Create a pull release, with a list of changes (a shortened summary of all commits since the last release.)
+8. Create a pull request, with a list of changes (a shortened summary of all commits since the last release.)
 
 9. Let @Adoria298 create a release.
