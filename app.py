@@ -8,10 +8,10 @@ messages = []
 
 class Message(Resource):
 	
-	def get(self, message=None):
+	def get(self):
 		return messages, 200
 	
-	def post(self, message):
+	def post(self):
 		parser = reqparse.RequestParser()
 		parser.add_argument("name")
 		args = parser.parse_args()
@@ -20,17 +20,19 @@ class Message(Resource):
 			name = "Unknown"
 		else:
 			name = args["name"]
+
+		message = args["message"]
 			
 		new_message = {
 			"text": message,
 			"name": name,
-			"id": uuid4()
+			"id": str(uuid4())
 		}
 		
 		messages.append(new_message)
 		return new_message, 201
 		
-	def put(self, message):
+	def put(self):
 		parser = reqparse.RequestParser()
 		parser.add_argument("name")
 		parser.add_argument("id")
@@ -40,6 +42,8 @@ class Message(Resource):
 			name = "Unknown"
 		else:
 			name = args["name"]
+
+		message = args["message"]
 		
 		for original_message in messages:
 			if original_message["id"] == args["id"]: #if the user wants to update a message
@@ -50,13 +54,13 @@ class Message(Resource):
 		new_message = {
 			"text": message,
 			"name": name,
-			"id": uuid4()
+			"id": str(uuid4())
 		}
 		
 		messages.append(new_message)
 		return new_message, 201
 		
-	def delete(self, message):
+	def delete(self):
 		parser = reqparse.RequestParser()
 		parser.add_argument("id")
 		args = parser.parse_args()
@@ -74,7 +78,7 @@ class Message(Resource):
 def index():
 	return str(messages)
 				
-api.add_resource(Message, "/messages/<string:message>")
+api.add_resource(Message, "/messages")
 if __name__ == '__main__':
 	app.run(debug=True)
 				
