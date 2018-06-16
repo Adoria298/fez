@@ -15,7 +15,7 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 ### Dependencies (for this branch)
 
 - [Python 3]
- (https://www.python.org/downloads) 
+ (https://www.python.org/downloads)
 
   - choose the latest version of Python 3 (currently 3.6.5)
 
@@ -34,7 +34,7 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 ### Download
 
 - `$ git clone https://www.github.com/Adoria298/flask-messenger.git`
- 
+
 ## Usage
 
 - Change directory into the cloned directory (flask-messenger)
@@ -56,8 +56,7 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 
 ### Acknowledgements
 
- - The [Raspberry Pi](https://www.raspberrypi.org) people for their ["Build a Python Web Server With Flask"]
- (https://projects.raspberrypi.org/en/projects/python-web-server-with-flask) project, and for the Raspberry Pi itself.
+- The [Raspberry Pi](https://www.raspberrypi.org) people for their ["Build a Python Web Server With Flask"](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask) project, and for the Raspberry Pi itself.
 
 ### Versioning
 
