@@ -1,6 +1,8 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 from uuid import uuid4
+import json
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -71,12 +73,11 @@ class Message(Resource):
 			for message in messages:
 				messages.pop(message)
 			return "Deleted all messages", 200
-
 		else:
-			for message in messages:
+			for index, message in enumerate(messages):
 				if message["id"] == args["id"]:
-					messages.pop(message)
-					return "Deleted message with text {0}, and id {1} by user {2}".format(message["text"], message["id"], message["name"]), 200
+					messages.pop(index)
+					return "Deleted message {0}".format(message["id"]), 200
 @app.route('/')
 def index():
 	return str(messages)
