@@ -1,4 +1,6 @@
 # Flask Messenger
+![GitHub release](https://img.shields.io/github/release/adoria298/flask-messenger.svg?style=plastic) ![GitHub last commit](https://img.shields.io/github/last-commit/adoria298/flask-messenger.svg?style=plastic) ![Github commits (since latest release)](https://img.shields.io/github/commits-since/Adoria298/flask-messenger/latest.svg?style=plastic) 
+
 A python3 app that uses Flask to create a web messenging app for your local network.
 
 ### Branches:
