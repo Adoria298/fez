@@ -46,7 +46,9 @@ Releases happen either after 5 high priority issues are fixed, or when a project
 
      - .zip
 
-     - .tar.gz
+     - .tar.xz
+     
+     - .7z
 
 7. Place these compressed formats into the releases folder.
 
