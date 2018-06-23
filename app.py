@@ -88,74 +88,6 @@ class Message(Resource):
 				if message["id"] == args["id"]:
 					messages.pop(index)
 					return "Deleted message {0}".format(message["id"]), 200
-					
-class Users(Resource):
-		
-	def get():
-		parser = reqparse.RequestParser()
-		parser.add_args("name")
-		parser.add_args("id")
-		args = parser.parse_args()
-		
-		if (args["name"] == None) and (args["id"] == None):
-			users_copy = users.copy()
-			for user_copy in users_copy:
-				del user_copy["password"]
-			return users_copy, 200
-		elif args["name"] == None:
-			for user in users:
-				if user["id"] == args["id"]:
-					user_copy = user.copy()
-					del user_copy["password"]
-					return user_copy, 200
-		elif args["id"] == None:
-			for user in users:
-				if user["name"] == args["id"]:
-					user_copy = user.copy()
-					del user_copy["password"]
-					return user_copy, 200
-
-	def post():
-		parser = reqparse.RequestParser()
-		parser.add_args("name")
-		args = parser.parse_args()
-		
-		new_user = {
-			"name": args["name"],
-			"id": str(uuid4()),
-			"password": str([chr(random.randint(1, 255)) for i in range(0, random.randint(8, 16))])
-		}
-		
-		return new_user, 201
-		
-	def put():
-		parser = reqparser.RequestParser()
-		parser.add_args("id")
-		parser.add_args("new_name")
-		parser.add_args("new_password")
-		args = parser.parse_args()
-		
-		for user in users:
-			if user["id"] == args["id"]:
-				users.pop(user)
-				
-		if args["new_name"]:
-			update_user["name"] = args["new_name"]
-			
-		if args["new_password"]:
-			update_user["password"] = args["new_password"]
-			
-		return update_user, 201
-		
-	def delete():
-		parser = reqparse.RequestParser()
-		parser.add_args("id")
-		args = parser.parse_args()
-		
-		for index, user in enumerate(users):
-			if user["id"] == args["id"]:
-				users.pop(index)
-				return "Deleted user {0}".format(user["id"]), 200
 				
 		
 	
@@ -177,7 +109,6 @@ def handle_refresh():
 	return index()
 				
 api.add_resource(Message, "/api/messages")
-api.add_resource(Users, "/api/users")
 
 if __name__ == '__main__':
 	app.run(debug=True, host=HOST, port=PORT)
