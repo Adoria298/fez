@@ -16,8 +16,7 @@ PORT = '5000'
 class Message(Resource):	
 	
 	def get(self):
-		messages_reversed = messages.copy().reverse()
-		return messages_reversed, 200
+		return messages, 200
 	
 	def post(self):
 		parser = reqparse.RequestParser()
