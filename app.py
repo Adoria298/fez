@@ -36,7 +36,8 @@ class Message(Resource):
 			new_message = {
 				"text": text,
 				"name": name,
-				"id": str(uuid4())
+				"id": str(uuid4()),
+				"markdown": True
 			}
 		
 			messages.append(new_message)
@@ -68,7 +69,8 @@ class Message(Resource):
 		new_message = {
 			"text": text,
 			"name": name,
-			"id": str(uuid4())
+			"id": str(uuid4()),
+			"markdown": True
 		}
 		
 		messages.append(new_message)
@@ -81,8 +83,8 @@ class Message(Resource):
 		args = parser.parse_args()
 		
 		if (args["id"] == "all") or (args["id"] == None):
-			for message in messages:
-				messages.pop(message)
+			for index, message in enumerate(messages):
+				messages.pop(index)
 			return "Deleted all messages", 200
 		else:
 			for index, message in enumerate(messages):
