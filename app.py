@@ -24,27 +24,24 @@ class Message(Resource):
 		parser.add_argument("name")
 		parser.add_argument("text")
 		args = parser.parse_args()
-		
-		if len(args["text"]) < 140:		
-			if args["name"] == None:
-				name = "Unknown"
-			else:
-				name = args["name"]
-
-			text = args["text"]
-			
-			new_message = {
-				"text": text,
-				"name": name,
-				"id": str(uuid4()),
-				"markdown": True
-			}
-		
-			messages.append(new_message)
-			print(new_message)
-			return new_message, 201
+				
+		if args["name"] == None:
+			name = "Unknown"
 		else:
-			return "Message text too long.", 400
+			name = args["name"][:70]
+
+		text = args["text"][:140]
+			
+		new_message = {
+			"text": text,
+			"name": name,
+			"id": str(uuid4())
+		}
+		
+		messages.append(new_message)
+		print(new_message)
+		return new_message, 201
+
 		
 	def put(self):
 		parser = reqparse.RequestParser()
@@ -56,9 +53,9 @@ class Message(Resource):
 		if args["name"] == None:
 			name = "Unknown"
 		else:
-			name = args["name"]
+			name = args["name"][:70]
 
-		text = args["text"]
+		text = args["text"][:140]
 		
 		for original_message in messages:
 			if original_message["id"] == args["id"]: #if the user wants to update a message
@@ -83,9 +80,8 @@ class Message(Resource):
 		args = parser.parse_args()
 		
 		if (args["id"] == "all") or (args["id"] == None):
-			for index, message in enumerate(messages):
-				messages.pop(index)
-			return "Deleted all messages", 200
+			messages = []
+			return "Deleted all messages", messages, 200
 		else:
 			for index, message in enumerate(messages):
 				if message["id"] == args["id"]:
