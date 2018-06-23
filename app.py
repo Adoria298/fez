@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request
 from flask_restful import Api, Resource, reqparse
-#from flask_login import LoginManager
 from uuid import uuid4
 import random
 import requests
 
 app = Flask(__name__)
 api = Api(app)
-#login_manager = for later
 
 messages = []
 users = []
@@ -27,22 +25,25 @@ class Message(Resource):
 		parser.add_argument("text")
 		args = parser.parse_args()
 		
-		if args["name"] == None:
-			name = "Unknown"
-		else:
-			name = args["name"]
+		if len(args["text"]) < 140:		
+			if args["name"] == None:
+				name = "Unknown"
+			else:
+				name = args["name"]
 
-		text = args["text"]
+			text = args["text"]
 			
-		new_message = {
-			"text": text,
-			"name": name,
-			"id": str(uuid4())
-		}
+			new_message = {
+				"text": text,
+				"name": name,
+				"id": str(uuid4())
+			}
 		
-		messages.append(new_message)
-		print(new_message)
-		return new_message, 201
+			messages.append(new_message)
+			print(new_message)
+			return new_message, 201
+		else:
+			return "Message text too long.", 400
 		
 	def put(self):
 		parser = reqparse.RequestParser()
