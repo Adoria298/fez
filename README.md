@@ -25,7 +25,11 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 
 - [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/)
 
-  - `pip install flask-restful`
+  - `$ pip install flask-restful`
+  
+- [Requests](https://http://docs.python-requests.org/en/master/)
+
+  - `$ pip install requests`
 
 - Please ensure you have all dependencies installed, before attempting to use flask-messenger.
 

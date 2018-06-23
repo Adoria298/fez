@@ -80,12 +80,12 @@ class Message(Resource):
 		parser.add_argument("id")
 		args = parser.parse_args()
 		
-		if args["id"] == "all":
+		if (args["id"] == "all") or (args["id"] == None):
 			for message in messages:
 				messages.pop(message)
 			return "Deleted all messages", 200
 		else:
-			for index, message in enumerate(self.messages):
+			for index, message in enumerate(messages):
 				if message["id"] == args["id"]:
 					messages.pop(index)
 					return "Deleted message {0}".format(message["id"]), 200
