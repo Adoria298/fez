@@ -110,5 +110,3 @@ api.add_resource(Message, "/api/messages")
 
 if __name__ == '__main__':
 	app.run(debug=True, host=HOST, port=PORT)
-				
-		
