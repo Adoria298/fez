@@ -92,6 +92,10 @@ class Message(Resource):
 def index():
 	return render_template('view.html', messages=messages)
 
+@app.route('/about')
+def about():
+	return render_template('about.html')
+
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
 	text = request.form["text"]
