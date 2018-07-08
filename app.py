@@ -90,7 +90,9 @@ class Message(Resource):
 
 @app.route('/')
 def index():
-	return render_template('view.html', messages=messages)
+	messages_copy = messages.copy()
+	messages_copy.reverse()
+	return render_template('view.html', messages=messages_copy)
 
 @app.route('/about')
 def about():
