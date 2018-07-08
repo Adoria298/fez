@@ -14,7 +14,13 @@
 	</form>
 	<h1>Messages:<br/></h1>
 	{% for message in messages %}
-		<div class="message">{{ message["name"] }}: {{ message["text"] }}</div>
+	<div class="card">
+		<div class="container">
+			<p class="message-name">From: {{ message["name"] }}</p>
+			<hr />
+			<p class="message-body">{{ message["text"] }}</p>
+		</div>
+	  </div> 
 	{% endfor %}
 	{% endblock %}
 </body>
