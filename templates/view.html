@@ -14,7 +14,7 @@
 	</form>
 	<h3>Messages:<br/></h3>
 	{% for message in messages %}
-	<div class="card">
+	<div class="card" id="{{ message['id'] }}">
 		<div class="container">
 			<p class="message-name">From: {{ message["name"] }}</p>
 			<p class="message-body">{{ message["text"] }}</p>
