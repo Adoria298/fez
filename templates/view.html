@@ -12,12 +12,11 @@
 	<form action="/handle_refresh" method="POST">
 		<input type="submit" value="Refresh" name="refresh">
 	</form>
-	<h1>Messages:<br/></h1>
+	<h3>Messages:<br/></h3>
 	{% for message in messages %}
 	<div class="card">
 		<div class="container">
 			<p class="message-name">From: {{ message["name"] }}</p>
-			<hr />
 			<p class="message-body">{{ message["text"] }}</p>
 		</div>
 	  </div> 
