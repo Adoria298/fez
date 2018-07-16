@@ -3,6 +3,7 @@ from flask_restful import Api, Resource, reqparse
 from uuid import uuid4
 import random
 import requests
+import markdown
 
 app = Flask(__name__)
 api = Api(app)
@@ -92,7 +93,7 @@ class Message(Resource):
 def index():
 	messages_copy = messages.copy()
 	messages_copy.reverse()
-	return render_template('view.html', messages=messages_copy)
+	return render_template('view.html', messages=messages_copy, markdown_to_html_func=markdown.markdown)
 
 @app.route('/about')
 def about():

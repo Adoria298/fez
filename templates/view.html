@@ -16,7 +16,7 @@
 			<div class="card" id="{{ message['id'] }}">
 				<div class="container">
 					<p class="message-name">From: {{ message["name"] }}</p>
-					<p class="message-body">{{ message["text"] }}</p>
+					<p class="message-body">{{ markdown_to_html_func(message["text"], safe_mode='escape')|safe }}</p>
 				</div>
 		</div> 
 		{% endfor %}
