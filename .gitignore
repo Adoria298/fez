@@ -135,4 +135,4 @@ venv.bak/
 
 # End of https://www.gitignore.io/api/linux,python,visualstudiocode
 
-./flask-messenger-graph.html
+flask-messenger-graph.html
