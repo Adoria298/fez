@@ -35,7 +35,7 @@ class Message(Resource):
 		new_message = {
 			"text": text,
 			"name": name,
-			"id": str(uuid4())
+			"id": len(messages)-1
 		}
 
 		messages.append(new_message)
@@ -56,16 +56,16 @@ class Message(Resource):
 
 		text = args["text"][:140]
 
-		for original_message in messages:
-			if original_message["id"] == args["id"]: #if the user wants to update a message
-				original_message["text"] = text
-				original_message["name"] = args["name"]
-				return original_message, 201
+		if messages[args["id"]]: #if the user wants to update a message
+			original_message = args["id"]
+			original_message["text"] = text
+			original_message["name"] = args["name"]
+			return original_message, 201
 
 		new_message = {
 			"text": text,
 			"name": name,
-			"id": str(uuid4()),
+			"id": len(messages)-1
 			"markdown": True
 		}
 
@@ -82,10 +82,8 @@ class Message(Resource):
 			messages = []
 			return "Deleted all messages", messages, 200
 		else:
-			for index, message in enumerate(messages):
-				if message["id"] == args["id"]:
-					messages.pop(index)
-					return "Deleted message {0}".format(message["id"]), 200
+			messages.pop(args["id"])
+			return f"Deleted message {args["id"].", 200
 
 
 
