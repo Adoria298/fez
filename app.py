@@ -35,7 +35,7 @@ class Message(Resource):
 		new_message = {
 			"text": text,
 			"name": name,
-			"id": len(messages)-1
+			"id": len(messages)
 		}
 
 		messages.append(new_message)
@@ -65,8 +65,7 @@ class Message(Resource):
 		new_message = {
 			"text": text,
 			"name": name,
-			"id": len(messages)-1
-			"markdown": True
+			"id": len(messages)
 		}
 
 		messages.append(new_message)
@@ -83,7 +82,7 @@ class Message(Resource):
 			return "Deleted all messages", messages, 200
 		else:
 			messages.pop(args["id"])
-			return f"Deleted message {args["id"].", 200
+			return "Deleted message %d." % args["id"], 200
 
 
 
