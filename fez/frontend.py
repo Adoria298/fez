@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 from requests import get, post, delete as rget, rpost, rdelete
 import markdown
 from . import MESSAGES_API_URL
