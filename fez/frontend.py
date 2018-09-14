@@ -1,7 +1,13 @@
 from flask import Blueprint, render_template
-from requests import get, post, delete as rget, rpost, rdelete
+
+#requests
+from requests import get as rget
+from requests import post as rpost
+from requests import delete as rdelete
+
 import markdown
-from . import MESSAGES_API_URL
+
+from .constants import MESSAGES_API_URL
 
 frontend_bp = Blueprint('fez_frontend', __name__, template_folder='templates')
 
