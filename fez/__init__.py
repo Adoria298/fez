@@ -13,7 +13,7 @@ def create_app():
 	No Parameters.
 	Returns instance of flask.Flask().
 	"""
-	app = Flask("flask_messenger")
+	app = Flask("fez")
 	
 	app.register_blueprint(frontend_bp)
 	

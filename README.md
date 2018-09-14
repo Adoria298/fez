@@ -1,6 +1,6 @@
-# Flask Messenger
+# Fez
 
-A python3 app that uses Flask to create a web messenging app for your local network.
+A LAN chat app, built with python3 and flask.
 
 ## Branches
 
@@ -30,6 +30,8 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 - [Requests](https://http://docs.python-requests.org/en/master/)
 
   - `$ pip install requests`
+- python-dotenv
+  - `$ pip install python-dotenv`
 
 - Please ensure you have all dependencies installed, before attempting to use flask-messenger.
 
@@ -47,15 +49,11 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 
 ### For Production
 
-- open app.py in a text editor of your choice,
+- open .flaskenv in a text editor of your choice,
 
-  - go to the `if __name__ == '__main__':` section (currently starting on line 63),
-
-- remove `debug=True` from the call to `app.run()`, so it looks like this:
-    ```python
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0')
-    ```
+  - change `FLASK_ENV` to `production`.
+  - change `FLASK_DEBUG` to `0`.
+- run on a production server, following official guidelines.
 
 ### For Development
 
@@ -69,7 +67,7 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 
 ### License
 
- Flask Messenger is licensed under the GNU GPL v3 license. For more information, please see [LICENSE](https://github.com/Adoria298/flask-messenger/blob/master/LICENSE).
+ Fez is licensed under the GNU GPL v3 license. For more information, please see [LICENSE](https://github.com/Adoria298/flask-messenger/blob/master/LICENSE).
 
 ### Acknowledgements
 
@@ -77,4 +75,4 @@ A python3 app that uses Flask to create a web messenging app for your local netw
 
 ### Versioning
 
- Flask Messenger uses [Semantic Versioning](https://www.semver.org)
+ Fez uses [Semantic Versioning](https://www.semver.org)

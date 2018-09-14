@@ -3,7 +3,7 @@ from requests import get, post, delete as rget, rpost, rdelete
 import markdown
 from . import MESSAGES_API_URL
 
-frontend_bp = Blueprint('flask_messenger_frontend', __name__, template_folder='templates')
+frontend_bp = Blueprint('fez_frontend', __name__, template_folder='templates')
 
 def message_format(message):
 	markdown.markdown(message, 
