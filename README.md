@@ -10,14 +10,15 @@ A LAN chat app, built with python3 and flask.
 
 - rewrite: for the rewrite (see projects)
 
+- restructure: for the restructure as part of the rewrite
+
 ## Installation
 
 ### Dependencies (for this branch)
 
-- [Python 3]
- (https://www.python.org/downloads)
+- [Python 3](https://www.python.org/downloads)
 
-  - choose the latest version of Python 3 (currently 3.6.5)
+  - choose the latest version of Python 3. Fez should work on a minimum of 3.5.2.
 
 - [Flask](http://flask.pocoo.org/)
 
@@ -30,7 +31,8 @@ A LAN chat app, built with python3 and flask.
 - [Requests](https://http://docs.python-requests.org/en/master/)
 
   - `$ pip install requests`
-- python-dotenv
+- [python-dotenv](https://github.com/theskumar/python-dotenv#readme)
+
   - `$ pip install python-dotenv`
 
 - Please ensure you have all dependencies installed, before attempting to use flask-messenger.
@@ -52,7 +54,9 @@ A LAN chat app, built with python3 and flask.
 - open .flaskenv in a text editor of your choice,
 
   - change `FLASK_ENV` to `production`.
+  
   - change `FLASK_DEBUG` to `0`.
+  
 - run on a production server, following official guidelines.
 
 ### For Development
