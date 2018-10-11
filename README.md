@@ -1,4 +1,4 @@
-# Fez
+# ![Fez Logo](./fez_logo.png) Fez
 
 A LAN chat app, built with python3 and flask.
 
