@@ -12,16 +12,16 @@
 			<input type="submit" value="Refresh" name="refresh">
 		</form>
 		<h3>Messages:<br/></h3>
-		{% for message in messages %}
-			<div class="card" id="{{ message['id'] }}">
-				<div class="container">
-					<p class="message-name">From: {{ message["name"] }}</p>
-					<p class="message-body">{{ markdown_to_html_func(message["text"], 
-						safe_mode='escape',
-						lazy_ol=False)|safe }}</p>
-				</div>
-		</div> 
-		{% endfor %}
+		{% if messages %}
+			{% for message in messages %}
+				<div class="card" id="{{ message['id'] }}">
+					<div class="container">
+						<p class="message-name">From: {{ message["name"] }}</p>
+						<p class="message-body">{{ markdown_to_html_func(message["text"])|safe }}</p>
+					</div>
+				</div> 
+			{% endfor %}
+		{% endif %}
 	{% endblock %}
 </body>
 

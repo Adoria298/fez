@@ -6,7 +6,7 @@ messages = []
 class Messages(Resource):
 
 	def get(self):
-		return jsonify(messages), 200
+		return messages, 200
 
 	def post(self):
 		parser = reqparse.RequestParser()
@@ -29,7 +29,7 @@ class Messages(Resource):
 
 		messages.append(new_message)
 		print(new_message)
-		return jsonify(new_message), 201
+		return new_message, 201
 
 	def put(self):
 		parser = reqparse.RequestParser()
@@ -59,7 +59,7 @@ class Messages(Resource):
 
 		messages.append(new_message)
 		print(new_message)
-		return jsonify(new_message), 201
+		return new_message, 201
 
 	def delete(self):
 		parser = reqparse.RequestParser()

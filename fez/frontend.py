@@ -6,29 +6,26 @@ from requests import post as rpost
 from requests import delete as rdelete
 
 import markdown
+import json
 
 from .constants import MESSAGES_API_URL
 
 frontend_bp = Blueprint('fez_frontend', __name__, template_folder='templates')
 
 def message_format(message):
-	markdown.markdown(message, 
+	message = markdown.markdown(message, 
 						safe_mode='escape',
 						lazy_ol=False)
+	return message
 
 @frontend_bp.route('/')
 def index():
-	messages = []
 	try:
-		messages_response = rget(MESSAGES_API_URL)
-		messages = messages_response.json()
+		messages = rget(MESSAGES_API_URL).json()
 		messages.reverse()
-	except simplejson.errors.JSONDecoderError: # no messages
-		messages = []
 	except Exception as e:
-		messages = [{"name": "System", "text": e, "id": 0}]
-	finally:
-		return render_template('view.html', messages=messages, markdown_to_html_func=message_format)
+		rpost(url=MESSAGES_API_URL, data={"name": "SYSTEM_ERROR", "text": e})
+	return render_template('view.html', messages=messages, markdown_to_html_func=message_format)
 
 @frontend_bp.route('/about')
 def about():
