@@ -1,0 +1,49 @@
+.navbar1 {
+   		 list-style-type: none;
+  		 margin: 0;
+  		 padding: 0;
+   		 overflow: hidden;
+   		 background-color: #17b200;
+		}
+
+.navbar2 {
+		    float: left;
+}
+
+.navbar2 {
+		    display: block;
+		    color: #ffffff;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+}
+
+.navbar3 {
+		text-align: right;
+}
+
+.navbar2 :hover:not(.active) {
+		    background-color: #138c01;
+}
+
+.active {
+			background-color:#0c0447;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+	transition: 0.3s;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+	padding: 2px 16px;
+}
+
+.message-name {
+	color: grey;
+	padding-bottom: 12px;
+}

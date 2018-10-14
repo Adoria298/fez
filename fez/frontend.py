@@ -18,12 +18,12 @@ def message_format(message):
 
 @frontend_bp.route('/')
 def index():
-	messages_response = rget(MESSAGES_API_URL)
 	messages = []
 	try:
+		messages_response = rget(MESSAGES_API_URL)
 		messages = messages_response.json()
 		messages.reverse()
-	except simplejson.errors.JSONDecoderError: #no messages
+	except simplejson.errors.JSONDecoderError: # no messages
 		messages = []
 	except Exception as e:
 		messages = [{"name": "System", "text": e, "id": 0}]
