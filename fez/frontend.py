@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 #requests
 from requests import get as rget
@@ -18,9 +18,17 @@ def message_format(message):
 
 @frontend_bp.route('/')
 def index():
-	messages = rget(MESSAGES_API_URL)
-	messages.reverse()
-	return render_template('view.html', messages=messages_copy, markdown_to_html_func=message_format)
+	messages_response = rget(MESSAGES_API_URL)
+	messages = []
+	try:
+		messages = messages_response.json()
+		messages.reverse()
+	except simplejson.errors.JSONDecoderError: #no messages
+		messages = []
+	except Exception as e:
+		messages = [{"name": "System", "text": e, "id": 0}]
+	finally:
+		return render_template('view.html', messages=messages, markdown_to_html_func=message_format)
 
 @frontend_bp.route('/about')
 def about():

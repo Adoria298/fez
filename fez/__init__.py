@@ -16,5 +16,5 @@ def create_app():
 	api.add_resource(Messages, "/api/messages")
 	
 	app.register_blueprint(frontend_bp)
-	
+
 	return app
