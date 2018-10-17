@@ -4,10 +4,10 @@
 	<meta char="UTF-8">
 	<link rel="stylesheet" type="text/css" href="/static/styles.css">
 	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-	<title>Flask Messenger</title>
+	<title>{% block page_title %}{% endblock %}</title>
 </head>
 <body>
-	<h1>Flask Messenger</h1>
+	<h1>{{ self.page_title() }}</h1>
 	<nav>
 		<ul class="navbar1">
 		  <li class="navbar2"><a class="active navbar3" href="/">Home</a></li>

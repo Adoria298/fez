@@ -36,7 +36,7 @@ Releases happen either after 5 high priority issues are fixed, or when a project
 
 2. Create a separate branch for your release, that is based off main.
 
-3. In app.py, set debug to False in when `app.run()` is called.
+3. In .flaskenv, set `FLASK_DEBUG` to 0, and `FLASK_ENV` to `production`.
 
 4. Delete any unnecessary files/folders, multiline comments (that aren't docstrings), unused variables (that don't impact on the code), etc.
 
