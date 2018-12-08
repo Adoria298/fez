@@ -40,3 +40,9 @@ Download from the [latest release](/releases/latest), then extract into a direct
  - The [Raspberry Pi](https://www.raspberrypi.org) people for their ["Build a Python Web Server With Flask"](https://projects.raspberrypi.org/en/projects/python-web-server-with-flask) project, and for the Raspberry Pi itself.
  #### Versioning: 
  Flask Messenger uses [Semantic Versioning](https://www.semver.org)
+ 
+ ### Roadmap
+ - Re write the API, with an internal messaging API, and an external REST API - the [rewrite project](/projects/1)
+ - Add a CLI messaging utitity.
+ - Improve the UI of the frontend web app.
+ - Release v1.0
