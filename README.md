@@ -10,8 +10,6 @@ A LAN chat app, built with python3 and flask.
 
 - rewrite: for the rewrite (see projects)
 
-- restructure: for the restructure as part of the rewrite
-
 ## Installation
 
 ### Dependencies (for this branch)
