@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from flask_restful import Resource, reqparse
+from flask_restplus import Resource, reqparse
  
 messages = []
 
@@ -7,21 +7,15 @@ class Messages(Resource):
 
 	def get(self):
 		"""
-		.. http:get:: /api/messages
-
    All messages
 
    **Example request**:
-
-   .. sourcecode:: http
-
+   
       GET /api/messages HTTP/1.1
       Host: localhost:5000
       Accept: application/json
 
    **Example response**:
-
-   .. sourcecode:: http
 
       HTTP/1.1 200 OK
       Content-Type: application/json
@@ -49,8 +43,6 @@ class Messages(Resource):
 
    **Example request**:
 
-   .. sourcecode:: http
-
       GET /api/messages HTTP/1.1
       Host: localhost:5000
       Accept: application/json
@@ -61,8 +53,6 @@ class Messages(Resource):
 	  }
 
    **Example response**:
-
-   .. sourcecode:: http
 
       HTTP/1.1 200 OK
       Content-Type: application/json

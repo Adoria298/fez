@@ -1,7 +1,7 @@
 from .frontend import frontend_bp
 from .apis import Messages
 from flask import Flask
-from flask_restful import Api
+from flask_restplus import Api
 
 def create_app():
 	"""
