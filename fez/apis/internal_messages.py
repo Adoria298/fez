@@ -8,7 +8,7 @@ def create_message(name, message):
 	name = name[:70]
 	message = message[:999]
 	new_message = {
-		"id": len(messages)-1,
+		"id": len(messages),
 		"name": name,
 		"text": message
 	}

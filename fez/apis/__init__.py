@@ -2,7 +2,7 @@
 from flask import Blueprint, jsonify
 from flask_restplus import Api, Resource, reqparse
 
-from .internal_messages import *
+from .internal_messages import get_messages, create_message, update_message, delete_message
 
 api_bp = Blueprint('fez_rest_apis', __name__, url_prefix='/api')
 
@@ -16,7 +16,7 @@ class Messages(Resource):
 		"""
 Returns all messages as a JSON array.
 		"""
-		return jsonify(get_messages()), 200
+		return get_messages(), 200
 
 	@api.response(201, 'New JSON message returned')
 	def post(self):
@@ -37,7 +37,7 @@ Creates a new message, consisting of the provided name and message.
 
 		new_message = create_message(name, text)
 		
-		return jsonify(new_message), 201
+		return new_message, 201
 	
 	@api.response(201, 'Created or updated JSON message returned')
 	def put(self):
@@ -61,8 +61,9 @@ Otherwise:
 
 		text = args["text"]
 
-		new_message = update_message(args["id"], name, text)		
-		return jsonify(new_message), 201
+		new_message = update_message(args["id"], name, text)
+		
+		return new_message, 201
 	
 	@api.response(201, 'Deleted specified message.')
 	def delete(self):
