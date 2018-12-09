@@ -2,7 +2,7 @@
 messages = []
 
 def get_messages():
-	return messages
+	return messages.copy()
 	
 def create_message(name, message):
 	name = name[:70]
@@ -35,5 +35,5 @@ def delete_message(id):
 		messages = []
 	else:
 		messages.pop(int(id))
-	return messages
+	return messages.copy()
 		
