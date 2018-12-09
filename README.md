@@ -65,6 +65,8 @@ A LAN chat app, built with python3 and flask.
 
 - If you want to suggest a feature, create an issue describing that feature, and attempt to implement it obeying the named guidelines.
 
+- API docs can be found in a running installion at /api .
+
 ## Meta
 
 ### License
