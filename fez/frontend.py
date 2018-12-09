@@ -1,14 +1,9 @@
 from flask import Blueprint, render_template, request
-
-#requests
-from requests import get as rget
-from requests import post as rpost
-from requests import delete as rdelete
-
 import markdown
 import json
 
 from .constants import MESSAGES_API_URL
+from .apis.internal_messages import get_messages, create_message, delete_message
 
 frontend_bp = Blueprint('fez_frontend', __name__, template_folder='templates')
 
@@ -19,12 +14,13 @@ def message_format(message):
 	return message
 
 @frontend_bp.route('/')
+@frontend_bp.route('/home')
 def index():
 	try:
-		messages = rget(MESSAGES_API_URL).json()
+		messages = get_messages()
 		messages.reverse()
 	except Exception as e:
-		rpost(url=MESSAGES_API_URL, data={"name": "SYSTEM_ERROR", "text": e})
+		create_message("Fez", str(e))
 	return render_template('view.html', messages=messages, markdown_to_html_func=message_format)
 
 @frontend_bp.route('/about')
@@ -36,7 +32,7 @@ def handle_data():
 	text = request.form["text"]
 	name = request.form["name"]
 
-	rpost(url=MESSAGES_API_URL, data={"name": name, "text": text})
+	create_message(name, text)
 
 	return index()
 
@@ -46,5 +42,5 @@ def handle_refresh():
 
 @frontend_bp.route('/delete/<id>')
 def delete(id):
-	rdelete(url=MESSAGES_API_URL, data={"id": id})
+	delete_message(id)
 	return index()

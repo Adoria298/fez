@@ -22,9 +22,9 @@ A LAN chat app, built with python3 and flask.
 
   - `$ pip install flask`
 
-- [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/)
+- [Flask-RESTful](https://flask-restplus.readthedocs.io/en/latest/)
 
-  - `$ pip install flask-restful`
+  - `$ pip install flask-restplus`
   
 - [Requests](https://http://docs.python-requests.org/en/master/)
 
@@ -45,7 +45,7 @@ A LAN chat app, built with python3 and flask.
 
 - Change directory into the cloned directory (usually flask-messenger)
 
-- `$ python3 app.py`
+-  `$ python3 -m flask run`
 
 ### For Production
 

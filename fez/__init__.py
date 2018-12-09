@@ -1,7 +1,7 @@
 from .frontend import frontend_bp
-from .apis import Messages
+from .apis import api_bp
 from flask import Flask
-from flask_restful import Api
+from flask_restplus import Api
 
 def create_app():
 	"""
@@ -11,10 +11,8 @@ def create_app():
 	Returns instance of flask.Flask().
 	"""
 	app = Flask("fez")
-	api = Api(app)
 	
-	api.add_resource(Messages, "/api/messages")
-	
+	app.register_blueprint(api_bp)
 	app.register_blueprint(frontend_bp)
 
 	return app
