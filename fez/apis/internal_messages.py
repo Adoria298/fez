@@ -30,9 +30,10 @@ def update_message(id, new_name, new_message):
 	return new_message
 
 def delete_message(id):
+	global messages
 	if id == "all":
 		messages = []
 	else:
-		message.pop(id)
+		messages.pop(id)
 	return messages
 		
