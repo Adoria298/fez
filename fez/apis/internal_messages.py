@@ -34,6 +34,6 @@ def delete_message(id):
 	if id == "all":
 		messages = []
 	else:
-		messages.pop(id)
+		messages.pop(int(id))
 	return messages
 		
