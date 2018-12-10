@@ -46,7 +46,7 @@ A LAN chat app, built with python3 and flask.
 
 - Change directory into the cloned directory (usually flask-messenger)
 
--  `$ python3 -m flask run`
+- `$ python3 -m flask run`
 
 ### For Production
 
