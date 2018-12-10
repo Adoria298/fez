@@ -22,18 +22,19 @@ A LAN chat app, built with python3 and flask.
 
   - `$ pip install flask`
 
-- [Flask-RESTful](https://flask-restplus.readthedocs.io/en/latest/)
+- [Flask-RESTPlus](https://flask-restplus.readthedocs.io/en/latest/)
 
   - `$ pip install flask-restplus`
-  
-- [Requests](https://http://docs.python-requests.org/en/master/)
 
-  - `$ pip install requests`
 - [python-dotenv](https://github.com/theskumar/python-dotenv#readme)
 
   - `$ pip install python-dotenv`
 
-- Please ensure you have all dependencies installed, before attempting to use flask-messenger.
+- [markdown](https://python-markdown.github.io)
+
+  - `$ pip install markdown`
+
+- Please ensure you have all dependencies installed, before attempting to use fez.
 
 - Please note that this project was tested on a [Raspberry Pi](https://www.raspberrypi.org/products/), but it should work on any platform with these dependencies installed.
 
@@ -65,7 +66,7 @@ A LAN chat app, built with python3 and flask.
 
 - If you want to suggest a feature, create an issue describing that feature, and attempt to implement it obeying the named guidelines.
 
-- API docs can be found in a running installion at /api .
+- API docs can be found in a running installation at /api .
 
 ## Meta
 
