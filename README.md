@@ -86,8 +86,6 @@ A LAN chat app, built with python3 and flask.
 
 ## Roadmap
 
-- Re write the API, with an internal messaging API, and an external REST API - the [rewrite project](/projects/1)
-
 - Add a CLI messaging utitity.
 
 - Improve the UI of the frontend web app.
