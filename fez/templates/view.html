@@ -1,0 +1,26 @@
+{% extends "layouts/layout.html" %}
+{% block page_title %}Fez{% endblock %}
+{% block content %}
+	<p>Enter your message in the form below:</p>
+	<form action="/handle_data" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="text" placeholder="Message">
+		<input type="submit" value="Send" name="send">
+	</form>
+	<form action="/handle_refresh" method="POST">
+		<input type="submit" value="Refresh" name="refresh">
+	</form>
+	<h3>Messages:<br/></h3>
+	{% if messages %}
+		{% for message in messages %}
+			<div class="card" id="{{ message['id'] }}">
+				<div class="container">
+					<p class="message-name">From: {{ message["name"] }}</p>
+					<p class="message-body">{{ markdown_to_html_func(message["text"])|safe }}</p>
+				</div>
+			</div> 
+		{% endfor %}
+	{% endif %}
+{% endblock %}	
+
+
