@@ -6,9 +6,7 @@ A LAN chat app, built with python3 and flask.
 
 ## Branches
 
-- master: for stable releases only.
-
-- login-system: for the original login-system.
+- master: for stable versions only.
 
 - rewrite: for the rewrite (see projects)
 
@@ -62,11 +60,7 @@ A LAN chat app, built with python3 and flask.
 
 ### For Development
 
-- See CONTRIBUTING.md for development guidelines.
-
-- If you find a bug, please report it on the issue page. If you think that you can fix, it, note this, and follow the contribution guidelines for doing so.
-
-- If you want to suggest a feature, create an issue describing that feature, and attempt to implement it obeying the named guidelines.
+- By default, a newly cloned installation is set up by default for flask development. If you want to contribute, please look at the roadmap for features, or the bug triage project for bugs you might be able to fix. If there are any other projects open, look at features you could implement.
 
 - API docs can be found in a running installation at /api .
 
