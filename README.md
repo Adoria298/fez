@@ -1,5 +1,7 @@
 # ![Fez Logo](./fez_logo_by_Luke_Wynne.png) Fez
 
+![GitHub release](https://img.shields.io/github/release/adoria298/flask-messenger.svg?style=plastic) ![GitHub last commit](https://img.shields.io/github/last-commit/adoria298/flask-messenger.svg?style=plastic) ![Github commits (since latest release)](https://img.shields.io/github/commits-since/Adoria298/flask-messenger/latest.svg?style=plastic)
+
 A LAN chat app, built with python3 and flask.
 
 ## Branches
@@ -81,3 +83,13 @@ A LAN chat app, built with python3 and flask.
 ### Versioning
 
  Fez uses [Semantic Versioning](https://www.semver.org)
+
+## Roadmap
+
+- Re write the API, with an internal messaging API, and an external REST API - the [rewrite project](/projects/1)
+
+- Add a CLI messaging utitity.
+
+- Improve the UI of the frontend web app.
+
+- Release v1.0
