@@ -8,7 +8,6 @@ from .apis.internal_messages import get_messages, create_message, delete_message
 frontend_bp = Blueprint('fez_frontend', __name__, template_folder='templates')
 
 names = ["Fez"] # frontend only
-users = 0
 
 def message_format(message):
 	message = markdown.markdown(message, 
@@ -26,7 +25,7 @@ def index():
 		create_message("Fez", str(e))
 
 	if not session.get("name", False):
-		session["name"] = "User" + str(users)
+		session["name"] = "User" + str(len(names))
 
 	return render_template('view.html', messages=messages, markdown_to_html_func=message_format, username=session["name"])
 
@@ -45,7 +44,6 @@ def handle_name_change():
 	if new_name not in names:
 		session["name"] = new_name
 		names.append(new_name)
-		users += 1
 	else:
 		create_message("Fez", session["name"] + " tried to be renamed "  + new_name + ".")
 	
