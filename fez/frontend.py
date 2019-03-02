@@ -54,7 +54,7 @@ def handle_name_change():
 @frontend_bp.route('/handle_data', methods=['POST'])
 def handle_data():
 	text = request.form["text"]
-	name = request.form["name"]
+	name = session["name"]
 
 	create_message(name, text)
 

@@ -3,8 +3,6 @@
 {% block content %}
 	<p>Enter your message in the form below:</p>
 	<form action="/handle_data" method="POST">
-		<input type="text" name="name" placeholder="Name">
-		<br />
 		<textarea name="text" placeholder="Message" rows=10 cols=50 maxlength=999></textarea>
 		<input type="submit" value="Send" name="send">
 	</form>
