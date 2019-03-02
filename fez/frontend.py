@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 import markdown
 import json
 
@@ -6,6 +6,9 @@ from .constants import MESSAGES_API_URL
 from .apis.internal_messages import get_messages, create_message, delete_message
 
 frontend_bp = Blueprint('fez_frontend', __name__, template_folder='templates')
+
+names = ["Fez"] # frontend only
+users = 0
 
 def message_format(message):
 	message = markdown.markdown(message, 
@@ -21,11 +24,32 @@ def index():
 		messages.reverse()
 	except Exception as e:
 		create_message("Fez", str(e))
-	return render_template('view.html', messages=messages, markdown_to_html_func=message_format)
+
+	if not session.get("name", False):
+		session["name"] = "User" + str(users)
+
+	return render_template('view.html', messages=messages, markdown_to_html_func=message_format, username=session["name"])
 
 @frontend_bp.route('/about')
 def about():
 	return render_template('about.html')
+
+@frontend_bp.route('/change_name')
+def change_name():
+	return render_template('change_name.html')
+
+@frontend_bp.route('/handle_name_change', methods=['POST'])
+def handle_name_change():
+	new_name = request.form["new_name"]
+
+	if new_name not in names:
+		session["name"] = new_name
+		names.append(new_name)
+		users += 1
+	else:
+		create_message("Fez", session["name"] + " tried to be renamed "  + new_name + ".")
+	
+	return index()
 
 @frontend_bp.route('/handle_data', methods=['POST'])
 def handle_data():

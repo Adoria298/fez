@@ -1,0 +1,9 @@
+{% extends 'layouts/layout.html' %}
+{% block page_title %}Fez | Change Name{% endblock %}
+{% block content %}
+<form action="/handle_name_change" method="POST">
+    <p>Current Name: {{ username }}.</p>
+    <input type="text" name="new_name" placeholder="New Name" maxlength="25">
+    <input type="submit" name="change_name" text="Change Name!">
+</form>
+{% endblock %}
